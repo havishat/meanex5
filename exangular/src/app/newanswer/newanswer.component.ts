@@ -37,10 +37,12 @@ export class NewanswerComponent implements OnInit {
 
 createAnswer() {
   this.newanswer.name = this.loggeduser;
-  console.log("name", this.newanswer.name )
+  console.log("name1", this.newanswer.name )
   this.newanswer._questionID = this.questionID;
   console.log("newanswer", this.newanswer)
   this.task.createAnswer(this.newanswer, (res) => { //callback is here
+    this.newanswer.name = this.loggeduser;
+    console.log("name2", this.newanswer.name )
     this.question._answers.push(res);
     this.task.updateQuestion(this.questionID, this.question, callback => {
       this._router.navigate(['/']);
