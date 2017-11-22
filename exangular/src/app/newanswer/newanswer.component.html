@@ -26,7 +26,7 @@
         <span *ngIf=(answer.errors) [ngStyle]="{'color': 'red'}"> Give me valid answer!</span>
         <span *ngIf=(answer.errors) [ngStyle]="{'color': 'red'}"> {{ answer.errors | json }}</span> 
         <br>
-        Supporting details for your answer (optional): <input name='details' type="text" [(ngModel)] = "newanswer.details.text"/> <br>
+        Supporting details for your answer (optional): <input name='details' type="text" [(ngModel)] = "newanswer.details"/> <br>
         <input [disabled]='formData.invalid' type="submit" value="Submit"> 
       </form>
       <button><a [routerLink] = "['/dashboard']">Cancel</a></button>

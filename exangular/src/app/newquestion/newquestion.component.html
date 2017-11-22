@@ -23,7 +23,7 @@
         <span *ngIf=(question.errors) [ngStyle]="{'color': 'red'}"> Give me valid question!</span>
         <span *ngIf=(question.errors) [ngStyle]="{'color': 'red'}"> {{ question.errors | json }}</span> 
         <br>
-        Description (optional): <input name='description' type="text" [(ngModel)] = "newquestion.description.text"/> <br>
+        Description (optional): <input name='description' type="text" [(ngModel)] = "newquestion.description"/> <br>
         <input [disabled]='formData.invalid' type="submit" value="Submit"> 
       </form>
       <button><a [routerLink] = "['/dashboard']">Cancel</a></button>

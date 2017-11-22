@@ -19,7 +19,6 @@ export class NewanswerComponent implements OnInit {
   loggeduser;
   question;
   questionID;
-  // private name: String;
 
   newanswer = {
    name: '',
@@ -35,14 +34,10 @@ export class NewanswerComponent implements OnInit {
   }
 
 
-//   retrieveid() {
-//     this.task.retrieveid((data) => {
-//       this.name = data.name;
-//   })
-// }
 
 createAnswer() {
   this.newanswer.name = this.loggeduser;
+  console.log("name", this.newanswer.name )
   this.newanswer._questionID = this.questionID;
   console.log("newanswer", this.newanswer)
   this.task.createAnswer(this.newanswer, (res) => { //callback is here
