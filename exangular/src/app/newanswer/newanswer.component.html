@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <title>Create</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+      <a [routerLink] = "['/dashboard']">Home</a>
+      <a><span (click) = "goBackQuestion()"><button type="button">Go Back Question</button></span></a>  
+      <a><span (click) = "logout()"><button type="button" class="logout">Logout</button></span></a>
+    <h1>
+      {{question.question}}
+    </h1>
+    <p>{{question.description}}</p>
+    <div class="tbl-header">
+        <form (submit)="createAnswer()" #formData='ngForm'>
+        Your Answer: <input name='your answer' type="text" required minlength="5"  [(ngModel)] = "newanswer.answer" #answer='ngModel'/> <br>
+        <span *ngIf=(answer.errors) [ngStyle]="{'color': 'red'}"> Give me valid answer!</span>
+        <span *ngIf=(answer.errors) [ngStyle]="{'color': 'red'}"> {{ answer.errors | json }}</span> 
+        <br>
+        Supporting details for your answer (optional): <input name='details' type="text" [(ngModel)] = "newanswer.details.text"/> <br>
+        <input [disabled]='formData.invalid' type="submit" value="Submit"> 
+      </form>
+      <button><a [routerLink] = "['/dashboard']">Cancel</a></button>
+    </div>
+  </body> 
+</html>

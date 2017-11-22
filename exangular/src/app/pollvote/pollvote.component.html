@@ -1,0 +1,17 @@
+
+<a [routerLink] = "['/dashboard']">Home</a>
+<a  (click)="answerThisQuestion()" >Answer this Question</a>
+<a><span (click) = "logout()"><button type="button" class="logout">Logout</button></span></a>
+<h1>{{ question.question }}</h1>
+<p>{{ question.description }}</p>
+<table>
+    <tr *ngFor='let answer of answers'>
+      <td>
+        {{answer.name}}<br>
+        <b>{{answer.answer}}</b><br>
+        {{answer.details}}
+      </td>
+      <td>{{answer.likes}} likes</td>
+      <td><button (click)='like(answer._id, answer)'>Like!</button></td>
+    </tr>
+</table>

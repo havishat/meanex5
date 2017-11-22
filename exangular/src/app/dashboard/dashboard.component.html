@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <title>Dashboard</title>
+  </head>
+
+  <body>
+    <div class="dashboard">
+        <div class="topcontainer">
+          <div class="header">
+              <h2>Hi {{ name }}!</h2>
+              <a [routerLink] = "['/newquestion']">Add a Question</a><a><span (click) = "logout()"><button type="button" class="logout">Logout</button></span></a>
+          </div>
+          <input [(ngModel)]="searchText" placeholder="search for questions">
+        </div>
+        <table col-width = "50%">
+              <thead>
+                  <tr>
+                    <th>Question</th>
+                    <th>Answers</th>
+                    <th>Actions</th>          
+                  </tr>
+              </thead>
+              <tr *ngFor = "let question of questions | filter: searchText">
+                  <td>{{question.question}}</td>
+                  <td>{{question._answers.length}}</td>
+                  <td><p><button type="button" name="button" (click) = "show(question._id)">show</button><button type="button" name="button" (click) = "answer(question._id)">Answer</button></p></td>          
+              </tr>
+          </table>
+    </div>
+  </body>
+</html>

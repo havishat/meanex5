@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <title>Create</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+      <a [routerLink] = "['/dashboard']">Home</a><a><span (click) = "logout()"><button type="button" class="logout">Logout</button></span></a>
+    <h1>
+      New Question:
+    </h1>
+    <div class="tbl-header">
+        <form (submit)="createQuestion()" #formData='ngForm'>
+        Question: <input name='question' type="text" required minlength="10"  [(ngModel)] = "newquestion.question" #question='ngModel'/> <br>
+        <span *ngIf=(question.errors) [ngStyle]="{'color': 'red'}"> Give me valid question!</span>
+        <span *ngIf=(question.errors) [ngStyle]="{'color': 'red'}"> {{ question.errors | json }}</span> 
+        <br>
+        Description (optional): <input name='description' type="text" [(ngModel)] = "newquestion.description.text"/> <br>
+        <input [disabled]='formData.invalid' type="submit" value="Submit"> 
+      </form>
+      <button><a [routerLink] = "['/dashboard']">Cancel</a></button>
+    </div>
+  </body> 
+</html>
