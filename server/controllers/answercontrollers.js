@@ -15,22 +15,22 @@ createAnswer: function (req, res) {
         
 },
 oneQuestionAnswers: function (req, res) {
-    Answer.find({_questionID: req.params.id}, function (err, data) {
+    Answer.find({_questionID: req.params.id}, function (err, answer) {
         if (err) {
             res.json(err);
             return;
         }
-        res.json(data);
+        res.json(answer);
     });
 },
 
 updateAnswer: function(req, res) {
-    Answer.update({_id: req.params.id}, req.body, function (err, data) {
+    Answer.update({_id: req.params.id}, req.body, function (err, answer) {
         if (err) {
             res.json(err);
             return;
         }
-        res.json(data);
+        res.json(answer);
     });
 },
 
