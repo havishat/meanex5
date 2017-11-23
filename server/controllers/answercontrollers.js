@@ -17,7 +17,6 @@ createAnswer: function (req, res) {
 oneQuestionAnswers: function (req, res) {
     Answer.find({_questionID: req.params.id}, function (err, data) {
         if (err) {
-            console.log("could not retrive data");
             res.json(err);
             return;
         }
