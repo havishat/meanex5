@@ -15,7 +15,6 @@ createAnswer: function (req, res) {
         
 },
 oneQuestionAnswers: function (req, res) {
-    console.log("got to itsanswers");
     Answer.find({_questionID: req.params.id}, function (err, data) {
         if (err) {
             console.log("could not retrive data");
@@ -27,7 +26,6 @@ oneQuestionAnswers: function (req, res) {
 },
 
 updateAnswer: function(req, res) {
-    console.log("update Answer", req.body);
     Answer.update({_id: req.params.id}, req.body, function (err, data) {
         if (err) {
             res.json(err);
